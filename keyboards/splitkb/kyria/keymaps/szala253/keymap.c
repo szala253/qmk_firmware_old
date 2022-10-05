@@ -82,17 +82,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
  * |Ctrl/Esc|   A  |   S  |   D  |   F  |   G  |                              |   H  |   J  |   K  |   L  | ;  : |Ctrl/' "|
  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
- * | LShift |   Z  |   X  |   C  |   V  |   B  | [ {  |AltCap|  |  Alt |  ] } |   N  |   M  | ,  < | . >  | /  ? | RShift |
+ * | LShift |   Z  |   X  |   C  |   V  |   B  | [ {  |AltCap|  |  Alt |  ] } |   N  |   M  | ,  < | . >  | /  ? |  HUN   |
  * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
- *                        |Adjust|  GUI | Bspc |  NAV | N/A  |  | Menu | HUN  | Space| Ent  | N/A  |
+ *                        |Adjust|  GUI | Bspc |  NAV | N/A  |  | Menu | SYM  | Space| Ent  | N/A  |
  *                        `----------------------------------'  `----------------------------------'
  */
     [_QWERTY] = LAYOUT(
      KC_TAB  , KC_Q ,  KC_W   ,  KC_E  ,   KC_R ,   KC_T ,                                           KC_Y,    KC_U,    KC_I,   KC_O,  KC_P ,   KC_DEL,
      CTL_ESC , KC_A ,  KC_S   ,  KC_D  ,   KC_F ,   KC_G ,                                           KC_H,    KC_J,    KC_K,   KC_L,KC_SCLN, CTL_QUOT,
-     KC_LSFT , KC_Z ,  KC_X   ,  KC_C  ,   KC_V ,   KC_B , KC_LBRC, ALT_CAPS,   KC_LALT, KC_RBRC,    KC_N,    KC_M, KC_COMM, KC_DOT,KC_SLSH,  KC_RSFT,
-                                 ADJUST, KC_LGUI, KC_BSPC,     NAV,    KC_NO,    KC_APP,     HUN,  KC_SPC,  KC_ENT,  KC_NO
+     KC_LSFT , KC_Z ,  KC_X   ,  KC_C  ,   KC_V ,   KC_B , KC_LBRC, ALT_CAPS,   KC_LALT, KC_RBRC,    KC_N,    KC_M, KC_COMM, KC_DOT,KC_SLSH,      HUN,
+                                 ADJUST, KC_LGUI, KC_BSPC,     NAV,    KC_NO,    KC_APP,     SYM,  KC_SPC,  KC_ENT,  KC_NO
     ),
+
 /*
  * Base Layer: Colemak DH
  *
@@ -112,6 +113,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      KC_LSFT , KC_Z ,  KC_X   ,  KC_C  ,   KC_D ,   KC_V , KC_LBRC,ALT_CAPS,   KC_LALT, KC_RBRC,  KC_K,   KC_H ,KC_COMM, KC_DOT ,KC_SLSH, KC_RSFT,
                                 _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______
     ),
+
 /*
  * Nav Layer: Media, navigation
  *
@@ -131,6 +133,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       _______, KC_MYCM, KC_WBAK, KC_WFWD, KC_WREF, _______,  KC_NUM, KC_SLCK, _______, _______,   KC_NO, KC_MPRV, KC_MPLY,KC_MNXT, KC_MUTE, KC_PSCR,
                                  _______, _______, _______,   KC_NO, _______, _______,     SYM, _______, _______, DEF_TO
     ),
+
 /*
  * Sym Layer: Numbers and symbols
 *
