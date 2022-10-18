@@ -54,18 +54,101 @@ const uint32_t PROGMEM unicode_map[] = {
     [__U] = 0xDC,
     [___U] = 0x170,
 };
+
+enum {
+    TD_NAV = 0,
+    TD_SYM,
+    TD_FKEYS,
+    TD_ADJUST,
+    TD_HUN
+};
+
+
 // clang-format on
+
+void td_nav(qk_tap_dance_state_t *state, void *user_data) {
+  if (state->count == 1) {
+    set_oneshot_layer(_NAV, ONESHOT_START);
+    clear_oneshot_layer_state(ONESHOT_PRESSED);
+    reset_tap_dance(state);
+  }
+  else if (state->count >= 2) {
+    layer_clear();
+    layer_on(_NAV);
+    reset_tap_dance(state);
+  }
+}
+
+void td_sym(qk_tap_dance_state_t *state, void *user_data) {
+  if (state->count == 1) {
+    set_oneshot_layer(_SYM, ONESHOT_START);
+    clear_oneshot_layer_state(ONESHOT_PRESSED);
+    reset_tap_dance(state);
+  }
+  else if (state->count >= 2) {
+    layer_clear();
+    layer_on(_SYM);
+    reset_tap_dance(state);
+  }
+}
+
+void td_fkeys(qk_tap_dance_state_t *state, void *user_data) {
+  if (state->count == 1) {
+    set_oneshot_layer(_FUNCTION, ONESHOT_START);
+    clear_oneshot_layer_state(ONESHOT_PRESSED);
+    reset_tap_dance(state);
+  }
+  else if (state->count >= 2) {
+    layer_clear();
+    layer_on(_FUNCTION);
+    reset_tap_dance(state);
+  }
+}
+
+void td_adjust(qk_tap_dance_state_t *state, void *user_data) {
+  if (state->count == 1) {
+    set_oneshot_layer(_ADJUST, ONESHOT_START);
+    clear_oneshot_layer_state(ONESHOT_PRESSED);
+    reset_tap_dance(state);
+  }
+  else if (state->count >= 2) {
+    layer_clear();
+    layer_on(_ADJUST);
+    reset_tap_dance(state);
+  }
+}
+
+void td_hun(qk_tap_dance_state_t *state, void *user_data) {
+  if (state->count == 1) {
+    set_oneshot_layer(_HUN, ONESHOT_START);
+    clear_oneshot_layer_state(ONESHOT_PRESSED);
+    reset_tap_dance(state);
+  }
+  else if (state->count >= 2) {
+    layer_clear();
+    layer_on(_HUN);
+    reset_tap_dance(state);
+  }
+}
+
+qk_tap_dance_action_t tap_dance_actions[] = {
+  [TD_NAV] = ACTION_TAP_DANCE_FN(td_nav),
+  [TD_SYM] = ACTION_TAP_DANCE_FN(td_sym),
+  [TD_FKEYS] = ACTION_TAP_DANCE_FN(td_fkeys),
+  [TD_ADJUST] = ACTION_TAP_DANCE_FN(td_adjust),
+  [TD_HUN] = ACTION_TAP_DANCE_FN(td_hun)
+};
 
 // Aliases for readability
 #define QWERTY DF(_QWERTY)
 #define COLEMAK DF(_COLEMAK_DH)
 #define DEF_TO TO(0)
 
-#define NAV TO(_NAV)
-#define SYM TO(_SYM)
-#define FKEYS TO(_FUNCTION)
-#define ADJUST MO(_ADJUST)
-#define HUN OSL(_HUN)
+#define NAV TD(TD_NAV)
+#define SYM TD(TD_SYM)
+#define FKEYS TD(TD_FKEYS)
+#define ADJUST TD(TD_ADJUST)
+#define HUN TD(TD_HUN)
 
 #define CTL_ESC MT(MOD_LCTL, KC_ESC)
 #define ALT_CAPS MT(KC_LALT, KC_CAPS)
